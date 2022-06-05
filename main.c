@@ -6,18 +6,21 @@
 int main() {
    int c;
    printf("Ingrese una frase:\n");
-   while (EOF != (c=getchar())){
-      if (islower(c)){
-         c = toupper(c);
-      }
-      else {
-         c = tolower(c);
-      }
+   while (EOF != (c=getchar())) {
+      if (isalpha(c)) {
+         if (islower(c)) {
+            c = toupper(c);
+            putchar(c);
+         }
+         else if (isupper(c) ) {
+            c = tolower(c);
+            putchar(c);
+         }
+      } else if (isdigit(c)) {
 
-      if (isdigit(c)){
-         c = '\0';
+      } else {
+         putchar(c);
       }
-      putchar(c);
    }
    return 0;
 }
